@@ -1,0 +1,82 @@
+ README.md
+⌚ Watch Store Website
+Це репозиторій для сайту з продажу годинників, реалізованого на WordPress + Elementor Pro. У цьому документі наведено покрокову інструкцію для розробника, який хоче приєднатися до проєкту, починаючи з нуля.
+1. Необхідні залежності та програмне забезпечення
+Перед початком роботи переконайтеся, що на вашій системі встановлені наступні компоненти:
+Компонент
+Версія
+Примітки
+Git
+остання
+для клонування репозиторію
+PHP
+≥ 8.3
+рекомендовано PHP 8.3.8
+Composer
+остання
+для керування залежностями PHP (необов'язково, залежить від плагінів)
+MySQL / MariaDB
+≥ 5.7
+для створення бази даних
+Apache HTTP Server
+≥ 2.4
+як веб-сервер
+Node.js + npm
+≥ 18
+для інструментів фронтенду, якщо використовуються
+LocalWP або XAMPP
+–
+для швидкого локального розгортання WordPress
+WP-CLI
+(опційно)
+для керування WordPress через CLI
+
+ 2. Налаштування середовища розробки
+Варіант 1: За допомогою LocalWP
+    1. Завантажте та встановіть LocalWP.
+    2. Створіть новий сайт:
+        ◦ Назва: watch-store
+        ◦ PHP: 8.3
+        ◦ Web Server: Apache
+        ◦ MySQL: 5.7+
+Варіант 2: За допомогою XAMPP
+    1. Встановіть XAMPP.
+    2. Запустіть Apache та MySQL.
+    3. Створіть папку проєкту:
+C:\xampp\htdocs\watch-store
+    4. Створіть базу даних через http://localhost/phpmyadmin.
+3. Клонування проєкту та встановлення залежностей
+# Клонування репозиторію
+git clone https://github.com/your-username/watch-store.git
+cd watch-store
+ Якщо в репозиторії є кастомні теми/плагіни, переконайтесь, що вони знаходяться у відповідних папках wp-content/themes/ і wp-content/plugins/.
+ 4. Створення та налаштування бази даних
+    1. Відкрийте phpMyAdmin або використовуйте CLI:
+       CREATE DATABASE watch_store_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    2. У файлі wp-config.php вкажіть відповідні налаштування:
+       define( 'DB_NAME', 'watch_store_db' );
+       define( 'DB_USER', 'root' );
+       define( 'DB_PASSWORD', '' );
+       define( 'DB_HOST', 'localhost' );
+ 5. Запуск проєкту в режимі розробки
+Варіант 1: Через LocalWP
+    • Просто натисніть Start Site, і відкрийте сайт.
+Варіант 2: Через XAMPP
+    • Відкрийте у браузері:
+      http://localhost/watch-store
+    • Пройдіть стандартну установку WordPress (якщо сайт ще не встановлений).
+6. Базові команди та операції
+Git
+# Створення нової гілки
+git checkout -b feature/назва-функції
+
+# Коміт змін
+git add .
+git commit -m "Опис змін"
+git push origin feature/назва-функції
+WordPress (опційно через WP-CLI)
+# Оновлення всіх плагінів
+wp plugin update --all
+
+# Резервне копіювання бази даних
+wp db export backup.sql
